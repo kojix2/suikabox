@@ -28,8 +28,11 @@ window('SuikaBox', 800, 500) do
         stretchy false
         on_clicked do
           data.replace(
-            tagger.parse(@input.text.force_encoding('UTF-8')).map do |word|
-              word.split(/[\t,]/)
+            tagger.parse(@input.text.force_encoding('UTF-8')).map do |line|
+              h, _, l = line.rpartition("\t")
+              r = [h].concat(l.split(','))
+              # r.size == 10 || warn("#{r.inspect} の要素数が10ではありません")
+              r
             end
           )
         end
