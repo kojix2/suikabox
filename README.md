@@ -1,4 +1,4 @@
-# SuikaBox
+# 🍉 SuikaBox 📦
 
 GUI for [Suika](https://github.com/yoshoku/suika) -  Japanese morphological analyzer written in pure Ruby
 
