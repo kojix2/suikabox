@@ -7,13 +7,14 @@ include Glimmer
 
 data = [[]]
 
-window('SuikaBox', 1000, 500) do
+window('SuikaBox', 800, 500) do
   margined true
 
   vertical_box do
     @input = multiline_entry do
       stretchy false
-      text 'ここに日本語の文章を入力して下さい。'
+      text "山路を登りながら、こう考えた。\n" +
+           '智に働けば角が立つ。情に棹させば流される。意地を通せば窮屈だ。とかくに人の世は住みにくい。'
     end
     horizontal_box do
       stretchy false
@@ -35,7 +36,9 @@ window('SuikaBox', 1000, 500) do
       end
     end
     table do
-      10.times { |i| text_column(i.to_s) }
+      %w[表層形 品詞 分類１ 分類２ 分類３ 活用型 活用形 原形 読み 発音].each do |h|
+        text_column(h)
+      end
       cell_rows data
       editable false
     end
