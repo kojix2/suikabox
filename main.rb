@@ -29,9 +29,9 @@ window('SuikaBox', 800, 500) do
         on_clicked do
           data.replace(
             tagger.parse(@input.text.force_encoding('UTF-8')).map do |line|
-              h, _, l = line.rpartition("\t")
+              h, _, l = line.rpartition("\t") # コンマやタブの対策
               r = [h].concat(l.split(','))
-              # r.size == 10 || warn("#{r.inspect} の要素数が10ではありません")
+              # r.size == 10 || warn("#{r.inspect} の要素数が10ではありません") # \nなど
               r
             end
           )
